@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NEWS RANK — Short-form news publishing</title>
+  <meta name="description" content="NEWS RANK turns trending news into approved short-form videos for owned social channels." />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #12151a;
+      --muted: #5b6573;
+      --paper: #f3f1ec;
+      --panel: rgba(255, 255, 255, 0.78);
+      --line: rgba(18, 21, 26, 0.12);
+      --accent: #0f6b5c;
+      --accent-soft: #d7efe9;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: "Pretendard Variable", Pretendard, sans-serif;
+      background:
+        radial-gradient(1200px 600px at 10% -10%, #d9efe9 0%, transparent 55%),
+        radial-gradient(900px 500px at 100% 0%, #efe4d4 0%, transparent 50%),
+        linear-gradient(180deg, #f7f5f0 0%, var(--paper) 100%);
+    }
+    a { color: var(--accent); text-underline-offset: 3px; }
+    .wrap { width: min(920px, calc(100% - 2rem)); margin: 0 auto; padding: 2.5rem 0 4rem; }
+    header {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: flex-end;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .logo {
+      font-family: Fraunces, Georgia, serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin: 0;
+    }
+    .logo span { display: block; margin-top: 0.45rem; color: var(--muted); font-family: Pretendard, sans-serif; font-size: 0.95rem; font-weight: 500; letter-spacing: 0; }
+    nav { display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.95rem; }
+    nav a { color: var(--ink); text-decoration: none; font-weight: 600; }
+    nav a:hover { color: var(--accent); }
+    .hero {
+      margin-top: 2.4rem;
+      padding: 1.8rem 1.6rem;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      backdrop-filter: blur(8px);
+    }
+    .hero h2 {
+      margin: 0 0 0.8rem;
+      font-family: Fraunces, Georgia, serif;
+      font-size: clamp(1.45rem, 3.4vw, 2rem);
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      max-width: 18ch;
+    }
+    .hero p { margin: 0; color: var(--muted); font-size: 1.05rem; line-height: 1.65; max-width: 52ch; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin-top: 1.2rem;
+    }
+    .card {
+      padding: 1.2rem 1.15rem;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.66);
+    }
+    .card h3 { margin: 0 0 0.55rem; font-size: 1rem; }
+    .card p { margin: 0; color: var(--muted); line-height: 1.55; font-size: 0.95rem; }
+    .lang {
+      margin-top: 2rem;
+      display: grid;
+      gap: 1rem;
+    }
+    .block {
+      padding: 1.35rem 1.25rem;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.7);
+    }
+    .block h2 {
+      margin: 0 0 0.7rem;
+      font-size: 1.05rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .block p, .block li { color: var(--ink); line-height: 1.7; }
+    .block ul { margin: 0.4rem 0 0; padding-left: 1.15rem; }
+    .chip {
+      display: inline-block;
+      margin-bottom: 0.7rem;
+      padding: 0.2rem 0.55rem;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+    footer {
+      margin-top: 2.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.92rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.2rem;
+      justify-content: space-between;
+    }
+    footer nav { gap: 0.9rem; }
+    footer a { color: var(--muted); font-weight: 500; text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1 class="logo">NEWS RANK<span>Short-form news publishing</span></h1>
+      <nav aria-label="Legal">
+        <a href="/news/about/">About</a>
+        <a href="/news/privacy/">Privacy Policy</a>
+        <a href="/news/terms/">Terms of Service</a>
+        <a href="/news/">Feed</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h2>이슈를 숏폼으로, 승인 후에만 발행</h2>
+      <p>
+        NEWS RANK는 트렌딩 뉴스를 카드뉴스·세로형 영상으로 재구성하고,
+        담당자 승인 뒤에만 자사 소셜 채널에 올리는 콘텐츠 퍼블리싱 서비스입니다.
+      </p>
+    </section>
+
+    <div class="grid">
+      <article class="card">
+        <h3>1. 토픽 수집</h3>
+        <p>랭킹·이슈 뉴스를 모아 핫토픽을 정리합니다.</p>
+      </article>
+      <article class="card">
+        <h3>2. 편집·승인</h3>
+        <p>헤드라인·요약·영상을 검토하고 운영자가 승인합니다.</p>
+      </article>
+      <article class="card">
+        <h3>3. 채널 발행</h3>
+        <p>승인된 콘텐츠만 Instagram / YouTube / TikTok 등 자사 계정에 게시합니다.</p>
+      </article>
+    </div>
+
+    <div class="lang">
+      <section class="block" lang="en">
+        <span class="chip">EN</span>
+        <h2>About NEWS RANK</h2>
+        <p>
+          NEWS RANK is a short-form news publishing service for our editorial operation.
+          We transform trending news into vertical videos and social posts, then publish
+          only after an authorized editor explicitly approves the content.
+        </p>
+        <ul>
+          <li>Owned-account publishing only (not a public creator marketplace)</li>
+          <li>Human approval before every social post</li>
+          <li>TikTok posting uses Content Posting API (Direct Post) for approved videos</li>
+        </ul>
+      </section>
+
+      <section class="block" lang="ko">
+        <span class="chip">KO</span>
+        <h2>서비스 소개</h2>
+        <p>
+          NEWS RANK는 자사 뉴스·콘텐츠 운영을 위한 숏폼 퍼블리싱 서비스입니다.
+          이슈를 세로형 영상과 카드로 만들고, 운영자가 승인한 결과물만
+          자사 틱톡·인스타·유튜브 계정에 게시합니다.
+        </p>
+        <ul>
+          <li>불특정 크리에이터용 공개 업로드 도구가 아닙니다</li>
+          <li>게시 전 반드시 담당자 승인이 필요합니다</li>
+          <li>틱톡 연동 시 Direct Post로 승인된 영상만 올립니다</li>
+        </ul>
+      </section>
+
+      <section class="block">
+        <span class="chip">CONTACT</span>
+        <h2>문의</h2>
+        <p>
+          개인정보·서비스 문의:
+          <a href="mailto:contact@newsrankservice.com">contact@newsrankservice.com</a>
+        </p>
+        <p style="margin-top:0.6rem;color:var(--muted);font-size:0.92rem;">
+          TikTok OAuth redirect (예정): <code>https://hansh47-bit.github.io/news/tiktok/callback</code>
+        </p>
+      </section>
+    </div>
+
+    <footer>
+      <div>© 2026 NEWS RANK</div>
+      <nav>
+        <a href="/news/privacy/">Privacy Policy</a>
+        <a href="/news/terms/">Terms of Service</a>
+      </nav>
+    </footer>
+  </div>
+</body>
+</html>
