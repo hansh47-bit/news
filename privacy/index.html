@@ -3,8 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Privacy Policy — NEWS RANK</title>
-  <meta name="description" content="NEWS RANK Privacy Policy" />
+  <title>Privacy Policy — newsrank</title>
+  <meta name="description" content="newsrank Privacy Policy" />
+  
+  <!-- 브라우저 탭 아이콘 (파비콘) - Basic Info의 앱 아이콘과 동일한 파일 사용 -->
+  <link rel="icon" type="image/png" href="https://hansh47-bit.github.io/news/app-icon.png" />
+  <link rel="apple-touch-icon" href="https://hansh47-bit.github.io/news/app-icon.png" />
+  
   <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
   <style>
@@ -28,14 +33,30 @@
     a { color: var(--accent); }
     .wrap { width: min(860px, calc(100% - 2rem)); margin: 0 auto; padding: 2.2rem 0 4rem; }
     header {
-      display: flex; justify-content: space-between; gap: 1rem; align-items: flex-end;
+      display: flex; justify-content: space-between; gap: 1rem; align-items: center; flex-wrap: wrap;
       padding-bottom: 1.2rem; border-bottom: 1px solid var(--line); margin-bottom: 1.6rem;
     }
-    .logo { margin: 0; font-family: Fraunces, Georgia, serif; font-size: 1.7rem; letter-spacing: -0.02em; }
-    .logo span { display:block; margin-top:0.3rem; font-family:Pretendard,sans-serif; font-size:0.88rem; color:var(--muted); font-weight:500; }
+    /* 누락되어 있던 헤더 아이콘 스타일 추가 */
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+    }
+    .brand-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      object-fit: cover;
+      border: 1px solid var(--line);
+      background: #fff;
+      flex-shrink: 0;
+    }
+    .logo { margin: 0; font-family: Fraunces, Georgia, serif; font-size: 1.7rem; letter-spacing: -0.02em; line-height: 1.1; }
+    .logo span { display:block; margin-top:0.25rem; font-family:Pretendard,sans-serif; font-size:0.88rem; color:var(--muted); font-weight:500; }
     nav { display:flex; gap:0.9rem; flex-wrap:wrap; }
     nav a { color: var(--ink); text-decoration:none; font-weight:600; font-size:0.92rem; }
-    h1 { font-family: Fraunces, Georgia, serif; font-size: clamp(1.6rem, 3vw, 2.1rem); margin: 0 0 0.4rem; }
+    nav a:hover { color: var(--accent); }
+    h1.page-title { font-family: Fraunces, Georgia, serif; font-size: clamp(1.6rem, 3vw, 2.1rem); margin: 0 0 0.4rem; }
     .meta { color: var(--muted); margin: 0 0 1.6rem; font-size: 0.92rem; }
     h2 { margin: 1.7rem 0 0.55rem; font-size: 1.12rem; }
     p, li { color: var(--ink); }
@@ -59,21 +80,26 @@
 <body>
   <div class="wrap">
     <header>
-      <p class="logo">NEWS RANK<span>Privacy Policy</span></p>
-      <nav>
+      <div class="brand">
+        <!-- 헤더 앱 아이콘 노출 -->
+        <img class="brand-icon" src="https://hansh47-bit.github.io/news/app-icon.png" alt="newsrank App Icon" />
+        <div class="logo">newsrank<span>Desktop Short-form News Publishing</span></div>
+      </div>
+      <nav aria-label="Legal">
         <a href="/news/about/">About</a>
         <a href="/news/privacy/">Privacy Policy</a>
         <a href="/news/terms/">Terms of Service</a>
+        <a href="/news/">Feed</a>
       </nav>
     </header>
 
-    <h1>개인정보처리방침</h1>
+    <h1 class="page-title">개인정보처리방침</h1>
     <p class="meta">시행일: 2026-11-13 · 문의: <a href="mailto:hansh47@gmail.com">hansh47@gmail.com</a></p>
 
     <section class="panel" lang="ko">
       <span class="label">KO</span>
       <p>
-        NEWS RANK(이하 “서비스”)는 숏폼 뉴스 콘텐츠 제작·승인·발행을 지원합니다.
+        newsrank(이하 “서비스”)는 숏폼 뉴스 콘텐츠 제작·승인·발행을 지원합니다.
         본 방침은 서비스가 어떤 정보를 왜 수집·이용·보관하는지 설명합니다.
       </p>
 
@@ -120,7 +146,7 @@
 
       <h2>6. 이용자 권리</h2>
       <ul>
-        <li>틱톡 앱 권한 관리 화면에서 NEWS RANK 연동을 철회할 수 있습니다.</li>
+        <li>틱톡 앱 권한 관리 화면에서 newsrank 연동을 철회할 수 있습니다.</li>
         <li>연동 해제·개인정보 열람·삭제 요청은 <a href="mailto:hansh47@gmail.com">hansh47@gmail.com</a> 로 요청할 수 있습니다.</li>
         <li>요청 확인 후 합리적 기간 내에 처리합니다.</li>
       </ul>
@@ -142,7 +168,7 @@
       <span class="label">EN</span>
       <h2 style="margin-top:0;">Privacy Policy (English)</h2>
       <p>
-        NEWS RANK (“Service”) helps our editorial team create, approve, and publish short-form news content.
+        newsrank (“Service”) helps our editorial team create, approve, and publish short-form news content.
         This Policy explains what information we collect and why.
       </p>
       <h2>1. Information We Collect</h2>
@@ -183,7 +209,7 @@
     </section>
 
     <footer>
-      <span>© 2026 NEWS RANK</span>
+      <span>© 2026 newsrank</span>
       <nav>
         <a href="/news/terms/">Terms of Service</a>
         <a href="/news/about/">About</a>
